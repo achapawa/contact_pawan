@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Contact Us Form</title>
+  <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+  <h1>Be in contact with Pawan Acharya</h1>
+  <hr>
+  <h2>Thank you for taking your time to fill the form.</h2>
+  <form class="form1" action ="https://submit-form.com/SAFODySJ">
+    <!--fieldset to group related elements in a form-->
+    <fieldset>
+      <legend>Your Intro</legend>
+      <div class="firstName">
+        <label for="firstName">First Name:</label><br>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter first name" maxlength="20" autofocus>
+      </div>
+      <div class="lastName">
+        <label for="lastName">Last Name:</label> <br>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter last name" maxlength="20">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>A bit more about you</legend>
+      <div class="gender">
+        <label class="gnd">Gender:</label>
+        <label class="m"> <input name="gender" type="radio" value="Male" />Male</label>
+        <label class="f"><input name="gender" type="radio" value="Female" />Female</label>
+      </div>
+      <div class="marital">
+        <label class="status">Marital Status:</label>
+        <label class="m"> <input name="marital" type="radio" value="Married" />Married</label>
+        <label class="un"><input name="marital" type="radio" value="Unmarried" />Unmarried</label>
+      </div>
+      <div class="birthday">
+        <label class="birth">Date of Birth:</label>
+        <input type="date" id="birthday" name="birthday">
+      </div>
+    </fieldset>
+
+    <!--to group related elements in a form-->
+    <fieldset>
+      <legend>Contact Details</legend>
+      <div class="cnt">
+        <label for="email">eMail:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email Address">
+        <label for="phone"> Mobile Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="(000)000-0000 " pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$">
+      </div>
+    </fieldset>
+
+    <fieldset class="last">
+      <legend>Address</legend>
+      <div class="str">
+        <label for="address">Street:</label>
+        <input type="text" placeholder="Enter Street Address" id="address" name="address" />
+      </div>
+      <div class="cty">
+        <label for="cityl">City:</label>
+        <input type="text" placeholder="Enter City" id="city" name="city" />
+      </div>
+      <div class="st">
+        <label for="state">State:</label>
+        <input type="text" placeholder="Enter State" id="state" name="state" />
+      </div>
+      <div class="zipp">
+        <label for="zip">Zip Code:</label>
+        <input type="text" placeholder="Enter Zip Code" id="zip" name="zip" />
+      </div>
+    </fieldset>
+    <button id="submit" type="submit">Submit Data</button>
+    <br>
+
+  </form>
+  <h3 id="error1"></h3>
+  <hr>
+  <p>copyright Pawan Acharya 2022</p>
+  <script >
+    document.getElementById("submit").addEventListener("click", function(event) {
+
+      function hasValue(input) {
+        if (input.trim() === "") {
+          return false;
+        } else {
+          return true;
+        }
+
+      }
+
+      function validateEmail(input) {
+        // check if the value is not empty
+        if (!hasValue(input)) {
+          return false;
+        }
+        // validate email format
+        const emailRegex =
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        const email = input.trim();
+        if (!emailRegex.test(email)) {
+          return false;
+        }
+        return true;
+      }
+
+      var fNameValid = hasValue(document.getElementById('firstName').value)
+      var lNameValid = hasValue(document.getElementById('lastName').value)
+      var bdValid = hasValue(document.getElementById('birthday').value)
+      var phoneValid = hasValue(document.getElementById('phone').value)
+      var addValid = hasValue(document.getElementById('address').value)
+      var cityValid = hasValue(document.getElementById('city').value)
+      var stateValid = hasValue(document.getElementById('state').value)
+      var zipValid = hasValue(document.getElementById('zip').value)
+      var emailValid = hasValue(document.getElementById('email').value)
+      var emailFormat = validateEmail(document.getElementById('email').value)
+      // if valid, submit the form.
+      if (fNameValid && lNameValid && emailValid && bdValid && phoneValid && addValid && cityValid && stateValid && zipValid) {
+
+        if (emailFormat) {
+
+          alert("Yay, the form was submitted to Pawan's email. He will get back to you as soon as he can. Thank you.")
+        } else {
+          //alert("Please make sure you entered correct email format!")
+          document.getElementById("error1").innerHTML = "Please make sure you entered correct email format!"
+        }
+
+      } else {
+
+        // preventDefault prevents submitting without all the required fields
+        event.preventDefault()
+        //alert("Please fill all the required fields! These fields are extremely important.")
+        document.getElementById("error1").innerHTML = "All the fields are required to be filled before submitting!"
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

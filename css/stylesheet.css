@@ -1,0 +1,107 @@
+@import "http://fonts.googleapis.com/css?family=Raleway";
+/* Universal selector */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+}
+
+/* body as a selector */
+body {
+  width: 85%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #f0ffff;
+}
+form{
+  background-color: #fffafa;
+}
+/*format heading one*/
+/*display property to block as we want both in new lines*/
+h1{
+  color:#006400;
+  font-family:'Raleway',sans-serif;
+  font-size: 1.8rem;
+  display: block;
+  text-shadow:1px 1px 1px gray
+}
+
+h2{
+  font-size: 1.2 rem;
+
+}
+h3{
+  font-size: 0.8rem;
+  color: Red;
+}
+/*format fieldset*/
+fieldset {
+  margin-bottom: 30px;
+
+}
+/*format legend*/
+legend {
+  color: Black;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.lastName {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.firstName {
+  float: left;
+  margin-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.m,.f{
+  display: block;
+}
+
+div.gender{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.marital{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+div.birthday{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.cnt{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* space between email and phone number sections */
+#email {
+  margin-right: 50px;
+}
+
+.str,.cty,.st,.zipp{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 25%;
+}
+
+
+#submit {
+  color: #093b09;
+  background-color: #e5fbe5;
+}
+
+hr {
+  height: 0.5vh;
+  color: Black;
+  background-color: #72b1b0;
+  margin-top: 4vh;
+  margin-bottom: 0.5vh;
+}
